@@ -37,5 +37,11 @@
         <input type="submit" value="Cadastrar">
 
     </form>
+
+    <div class='listar-veiculos'>
+        <!-- falta usar a requisição para buscar os veiculos cadastrados -->
+        <!-- aqui terá o editar e excluir do veiculo -->
+        <!-- visualização em cards -->
+    </div>
 </body>
 </html>
