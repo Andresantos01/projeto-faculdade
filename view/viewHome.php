@@ -8,5 +8,8 @@
 <body>
     <h1>VEICULOS</h1>
     <p>cadastre aqui um novo veiculo</p>
+    <form action="../controller/veiculoController.php" method="post">
+
+    </form>
 </body>
 </html>
