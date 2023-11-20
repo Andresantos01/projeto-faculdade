@@ -69,6 +69,38 @@ class veiculoController extends ConexaoMySQL
     }
 
 
+    public function listarVeiculoPorId($id)
+    {
+        // Estabelece conexão com o banco de dados
+        $conn = $this->conexao();
+
+        // Seleciona o veículo pelo ID
+        $listarPorId = $conn->prepare("SELECT * FROM veiculos WHERE id=?");
+        $listarPorId->bind_param("i", $id);
+
+        if ($listarPorId->execute()) {
+
+            $result = $listarPorId->get_result();
+
+            /* ----------------- Verifica se o veículo foi encontrado ----------------- */
+            if ($result->num_rows > 0) {
+                // Pega o primeiro (e único) resultado, já que deve retornar apenas um veículo pelo ID
+                $row = $result->fetch_assoc();
+
+                // Retorna os valores do veículo
+                return $row;
+
+            } else {
+                echo "Veículo não encontrado.";
+            }
+
+        } else {
+            echo "Erro ao listar veículo por ID!";
+        }
+    }
+
+
+
     public function atualizarVeiculo()
     {
         // Pega os valores do frontend
